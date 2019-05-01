@@ -5,14 +5,17 @@ import UserInfo from "./UserInfo";
 
 class Account extends React.Component {
   state = {
-    id: 2,
     posts: [],
     page: "account"
   };
 
   fetchPosts = () => {
     axios
-      .get(`https://makinahgram-api.herokuapp.com/users/${this.state.id}`)
+      .get(
+        `https://makinahgram-api.herokuapp.com/users/${
+          this.props.match.params.id
+        }`
+      )
       .then(response => {
         this.setState({
           name: response.data.name,
@@ -26,6 +29,23 @@ class Account extends React.Component {
         //throw new Error("Could not fetch posts");
         console.log(error);
       });
+  };
+
+  deletePost(id) {
+    axios
+      .delete(`https://makinahgram-api.herokuapp.com/posts/${id}`)
+      .then(response => {
+        let posts = this.state.posts.filter(post => post.id !== +id);
+        this.setState({ posts });
+      })
+      .catch(error => {
+        //throw new Error("Could not fetch posts");
+        console.log(error);
+      });
+  }
+
+  handleClick = event => {
+    this.deletePost(event.target.id);
   };
 
   componentDidMount() {
@@ -50,10 +70,13 @@ class Account extends React.Component {
               <section>
                 <Post
                   key={post.id}
+                  userId={this.props.match.params.id}
                   name={this.state.name}
+                  postId={post.id}
                   date={date[0]}
                   src={post.image}
                   page={this.state.page}
+                  buttonHandler={this.handleClick}
                 />
               </section>
             );
