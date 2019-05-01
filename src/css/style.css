@@ -1,0 +1,213 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: arial, Sans-Serif;
+}
+
+.page-header {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  border: 2px solid black;
+  padding: 20px;
+  background-color: white;
+  z-index: 1;
+}
+
+header img {
+  height: 40px;
+  width: 40px;
+  margin-right: 10px;
+}
+
+header nav {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+header nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+}
+
+header nav ul li {
+  border-left: 2px solid black;
+  padding: 31px;
+}
+
+header nav a {
+  text-decoration: none;
+  color: black;
+}
+
+.active {
+  background: #336f86;
+}
+
+h1 {
+  margin: 0;
+}
+
+main {
+  margin-top: 100px;
+}
+
+section {
+  width: 50%;
+  margin: 0 auto 20px auto;
+  border: 1px solid grey;
+}
+
+section header {
+  display: flex;
+  border-bottom: 1px solid grey;
+}
+
+section header p {
+  margin: 0;
+  padding: 2px;
+}
+
+section header p:first-child {
+  flex-basis: 30%;
+}
+
+section header p + p {
+  flex-basis: 70%;
+  text-align: right;
+}
+
+time {
+  text-align: right;
+}
+
+section * {
+  width: 100%;
+}
+
+.podcast {
+  height: 100px;
+}
+
+.video,
+section img {
+  height: 315px;
+}
+
+.map {
+  height: 450px;
+}
+
+.user-info {
+  border: 0;
+  padding: 20px;
+  display: flex;
+}
+
+.user-data {
+  margin-left: 20px;
+}
+
+h2 {
+  padding: 10px;
+  margin: 0;
+}
+
+.user-info p {
+  margin: 0;
+}
+
+.stats {
+  display: flex;
+  margin-top: 20px;
+}
+
+.stats div + div {
+  margin-left: 10px;
+}
+
+.stats div p {
+  text-align: center;
+}
+
+.user-info header {
+  border-bottom: 0;
+}
+
+.user-info img {
+  height: 100px;
+  width: 100px;
+  border: 1px solid black;
+  border-radius: 100px;
+  padding: 20px;
+}
+
+.posts {
+  display: flex;
+  flex-wrap: wrap;
+  width: 85%;
+  margin: 0 auto;
+}
+
+.posts section {
+  height: 315px;
+  flex-basis: 32%;
+  margin-bottom: 50px;
+}
+
+.posts section * {
+  height: 100%;
+  width: 100%;
+}
+
+#ted-podcast {
+  background-image: url("data:image/png;base64,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");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  border-radius: 0 0 30px 30px;
+}
+
+.tweet {
+  width: 192px;
+}
+
+footer {
+  border: 2px solid black;
+  padding: 10px;
+}
+
+footer nav ul {
+  list-style: none;
+  margin: 0 0 10px 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+footer ul li + li {
+  margin-left: 50px;
+}
+
+footer p {
+  margin: 0;
+}
+
+@media screen and (max-width: 767 px) {
+  .posts section {
+    flex-basis: 90%;
+  }
+}
+
+.close {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
