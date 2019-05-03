@@ -30,15 +30,17 @@ class Feed extends React.Component {
     return this.state.posts.map(post => {
       const date = post.created_at.split("T");
       return (
-        <Post
-          key={post.id}
-          userId={post.user.id}
-          name={post.user.name}
-          postId={post.id}
-          date={date[0]}
-          src={post.image}
-          page={this.state.page}
-        />
+        <section>
+          <Post
+            key={post.id}
+            userId={post.user.id}
+            name={post.user.name}
+            postId={post.id}
+            date={date[0]}
+            src={post.image}
+            page={this.state.page}
+          />
+        </section>
       );
     });
   }

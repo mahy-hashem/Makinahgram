@@ -21,12 +21,14 @@ class PostForm extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmitButton}>
-        <legend>Create a new post</legend>
-        <label htmlFor="url">Image URL</label>
-        <input type="text" id="url" name="url" />
-        <button>Post!</button>
-      </form>
+      <main>
+        <form onSubmit={this.handleSubmitButton}>
+          <legend>Create a new post</legend>
+          <label htmlFor="url">Image URL</label>
+          <input type="text" id="url" name="url" />
+          <button>Post!</button>
+        </form>
+      </main>
     );
   }
 }
