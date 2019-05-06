@@ -52,6 +52,10 @@ class Account extends React.Component {
     this.fetchPosts();
   }
 
+  componentDidUpdate() {
+    this.fetchPosts();
+  }
+
   render() {
     const postsNumber = this.state.posts.length;
     return (
